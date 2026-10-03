@@ -24,11 +24,11 @@ export class UsersService {
         return [...this.users];
     }
     update(user: User) {
-        const update = this.users.find(u => u.id == user.id)
-        if (update) {
-            update.fullname = user.fullname;
-            update.username = user.username;
-            update.role = user.role;
+        const updatefunc = this.users.find(u => u.id == user.id)
+        if (updatefunc) {
+            updatefunc.fullname = user.fullname;
+            updatefunc.username = user.username;
+            updatefunc.role = user.role;
         }
     }
     remove(id: number) {
