@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { LoginPage } from './+pages/login-page/login-page';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginPage],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

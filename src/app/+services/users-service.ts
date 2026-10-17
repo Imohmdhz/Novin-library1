@@ -3,14 +3,14 @@ import { Service } from '@angular/core';
 @Service()
 export class UsersService {
     private users: User[] = [
-        { id: 1, fullname: 'Admin', username: 'admin', password: 'admin', role: 'admin' },
+        { id: 1, fullname: 'Library Admin', username: 'admin', password: 'admin', role: 'admin' },
         { id: 2, fullname: 'Mohammad Hamzei', username: 'mohammad', password: 'hamzei', role: 'librarian' },
         { id: 3, fullname: 'Ali Habibi', username: 'ali', password: 'habibi', role: 'librarian' }
     ];
     signin(username: string, password: string) {
         const user = this.users.find(u => u.username == username && u.password == password);
         if (user) {
-            user;
+           return user;
         }
         return undefined;
     }

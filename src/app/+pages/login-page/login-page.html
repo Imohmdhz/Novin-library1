@@ -1,6 +1,28 @@
-<form>
-    <input name="username" [(ngModel)]="loginData.username" type="text" placeholder="Username">
-    <input name="password" [(ngModel)]="loginData.password" type="password" placeholder="Password">
-    <input name="keepMe" [(ngModel)]="loginData.keepMe" type="checkbox">
-    <button>Login</button>
+<form [formRoot]="loginForm">
+    <input [formField]="loginForm.username" type="text" placeholder="Username">
+    @if (loginForm.username().dirty() && loginForm.username().invalid()) {
+    <span>
+        @for (item of loginForm.username().errors(); track $index) {
+        <span class="hint">{{item.message}}</span>
+        }
+    </span>
+    }
+    <input [formField]="loginForm.password" type="password" placeholder="Password">
+    @if (loginForm.password().dirty() && loginForm.password().invalid()) {
+    <span>
+        @for (item of loginForm.password().errors(); track $index) {
+        <span class="hint">{{item.message}}</span>
+        }
+    </span>
+    }
+    <div>
+        <input id="keepMe" [formField]="loginForm.keepMe" type="checkbox">
+        <label for="keepMe">Keep me signed in</label>
+    </div>
+    <button [disabled]="loginForm().invalid()" (click)="check()">Login</button>
+    @if (message!='') {
+    <div class="error">
+        {{message}}
+    </div>
+    }
 </form>
