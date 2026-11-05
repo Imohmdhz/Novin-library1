@@ -1,0 +1,50 @@
+.title {
+    background-color: black;
+    color: whitesmoke;
+    padding: 1em;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+
+    button{
+        margin: 0-5px;
+        padding: 0.4em;
+        background-color: darkred;
+        color: whitesmoke;
+    }
+    button:hover{
+        background-color: rgb(186, 37, 37);
+        color: black;
+    }
+}
+
+.sidebar {
+    background-color: darkblue;
+    width: 200px;
+    height: calc(100vh - 3em);
+    position: fixed;
+
+    a {
+        color: whitesmoke;
+        text-decoration: none;
+    }
+
+    li {
+        padding: 1em;
+        border-bottom: 1px solid whitesmoke;
+    }
+
+    li:hover {
+        background-color: rgb(0, 0, 223);
+
+        a {
+            color: black;
+        }
+    }
+}
+
+.content {
+    margin-left: 200px;
+    padding: 0.5em;
+}

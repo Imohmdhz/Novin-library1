@@ -7,15 +7,33 @@ export class UsersService {
         { id: 2, fullname: 'Mohammad Hamzei', username: 'mohammad', password: 'hamzei', role: 'librarian' },
         { id: 3, fullname: 'Ali Habibi', username: 'ali', password: 'habibi', role: 'librarian' }
     ];
+    currentUser: User | undefined;
     signin(username: string, password: string) {
         const user = this.users.find(u => u.username == username && u.password == password);
         if (user) {
-           return user;
+            sessionStorage.setItem('currentUser', JSON.stringify(user));
+            this.currentUser = user;
+            return user;
         }
         return undefined;
     }
+    sessionSignIn() {
+        if (!this.currentUser)
+            if (sessionStorage.getItem('currentUser'))
+                this.currentUser = JSON.parse(sessionStorage.getItem('currentUser')!);
+            else if (localStorage.getItem('currentUser'))
+            {
+                this.currentUser = JSON.parse(localStorage.getItem('currentUser')!);
+                sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+            }
+    }
+    keep() {
+        localStorage.setItem('currentUser', sessionStorage.getItem('currentUser')!);
+    }
     signout() {
-
+        this.currentUser = undefined;
+        sessionStorage.removeItem('currentUser');
+        localStorage.removeItem('currentUser');
     }
     add(user: User) {
         this.users.push(user);

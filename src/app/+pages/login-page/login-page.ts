@@ -17,10 +17,12 @@ export class LoginPage {
     this.message = '';
     const result = this.useresService.signin(this.loginData().username, this.loginData().password)
     if (result) {
-      this.router.navigateByUrl('panel')
+      if(this.loginData().keepMe)
+        localStorage.setItem('currentUser',JSON.stringify(this.useresService.currentUser));
+      this.router.navigateByUrl('panel');
     }
     else {
-      this.message = 'Invalid username/password'
+      this.message = 'Invalid username/password';
     };
   }
   message = '';

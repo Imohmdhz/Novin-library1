@@ -1,1 +1,35 @@
-<p>Welcom</p>
+<div class="title">
+    Welcome {{userservice.currentUser?.fullname}} to Novin library
+    <button (click)="signout()">Signout</button>
+</div>
+<div>
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a routerLink="reports">Home</a>
+            </li>
+            @if (userservice.currentUser?.role=='admin'){
+            <li>
+                <a routerLink="users">Users</a>
+            </li>
+            }
+            @if (userservice.currentUser?.role=='librarian' || (userservice.currentUser?.role=='admin')) {
+            <li>
+                <a routerLink="books">Books</a>
+            </li>
+            <li>
+                <a routerLink="subscribers">Subscribers</a>
+            </li>
+            <li>
+                <a routerLink="borrrows">Borrows</a>
+            </li>
+            }
+            <li>
+                <a (click)="signout()">Exit</a>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>
