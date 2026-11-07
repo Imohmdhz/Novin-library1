@@ -1,1 +1,26 @@
-<p>books-page works!</p>
+@if (loading()) {
+	<div class="message">Loading...</div>
+} @else {
+	@if (data() && data().length > 0) {
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Writer</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (item of data(); track $index) {
+					<tr>
+						<td>{{ item.id }}</td>
+						<td>{{ item.name }}</td>
+						<td>{{ item.writer }}</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	} @else {
+		<div class="message">There is no data now!</div>
+	}
+}

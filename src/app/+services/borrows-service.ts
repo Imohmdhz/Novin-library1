@@ -1,6 +1,7 @@
 import { Service } from '@angular/core';
 import { Book } from './books-service';
 import { Member } from './members-service';
+import { delay, of } from 'rxjs';
 
 @Service()
 export class BorrowsService {
@@ -28,7 +29,7 @@ export class BorrowsService {
         this.borrows.push(borrow);
     }
     list() {
-        return [...this.borrows];
+        return of([...this.borrows]).pipe(delay(1000));
     }
     update(borrow: Borrow) {
         const updatefunc = this.borrows.find(u => u.id == borrow.id)

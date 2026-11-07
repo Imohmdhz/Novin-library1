@@ -1,0 +1,32 @@
+@if(loading()){
+<div class="message">
+    Loading...
+</div>
+}
+@else {
+@if (data() && data().length >0) {
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Fullname</th>
+            <th>Address</th>
+            <th>Phonenumber</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of data(); track $index) {
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.fullname}}</td>
+            <td>{{item.address}}</td>
+            <td>{{item.phonenumber}}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+}
+@else {
+<div class="message">There is no data now!</div>
+}
+}

@@ -1,1 +1,36 @@
-<p>borrows-page works!</p>
+@if (loading()) {
+	<div class="message">Loading...</div>
+} @else {
+	@if (data() && data().length > 0) {
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Borrow date</th>
+					<th>Return date</th>
+					<th>Book</th>
+					<th>Writer</th>
+					<th>Member</th>
+					<th>Address</th>
+					<th>Phonenumber</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (item of data(); track $index) {
+					<tr>
+						<td>{{ item.id }}</td>
+						<td>{{ item.borrowdate }}</td>
+						<td>{{ item.returndate }}</td>
+						<td>{{ item.book.name }}</td>
+						<td>{{ item.book.writer}}</td>
+						<td>{{ item.member.fullname }}</td>
+						<td>{{ item.member.address }}</td>
+						<td>{{ item.member.phonenumber }}</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	} @else {
+		<div class="message">There is no data now!</div>
+	}
+}

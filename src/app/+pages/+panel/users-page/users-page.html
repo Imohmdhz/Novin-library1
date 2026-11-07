@@ -1,1 +1,32 @@
-<p>users-page works!</p>
+@if(loading()){
+<div class="message">
+    Loading...
+</div>
+}
+@else {
+@if (data() && data().length >0) {
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Fullname</th>
+            <th>Username</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of data(); track $index) {
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.fullname}}</td>
+            <td>{{item.username}}</td>
+            <td>{{item.role}}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+}
+@else {
+<div class="message">There is no data now!</div>
+}
+}

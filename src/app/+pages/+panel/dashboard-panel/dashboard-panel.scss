@@ -7,13 +7,14 @@
     display: flex;
     justify-content: space-between;
 
-    button{
+    button {
         margin: 0-5px;
         padding: 0.4em;
         background-color: darkred;
         color: whitesmoke;
     }
-    button:hover{
+
+    button:hover {
         background-color: rgb(186, 37, 37);
         color: black;
     }

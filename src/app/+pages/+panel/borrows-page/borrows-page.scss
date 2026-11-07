@@ -1,0 +1,23 @@
+table{
+    width: 100%;
+    border-collapse: collapse;
+    tr{
+        border: 1px solid black;
+        th{
+            background-color: rgb(51, 51, 164);
+            color: whitesmoke;
+            padding: 1em;
+            font-weight:400;
+            text-align: left;
+        }
+        td{
+            padding: 0.5em;
+        }
+    }
+}
+.message{
+    background-color: lightcyan;
+    color: black;
+    border: 1px solid darkcyan;
+    padding: 1em;
+}

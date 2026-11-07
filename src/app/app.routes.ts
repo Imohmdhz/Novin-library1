@@ -4,9 +4,9 @@ import { DashboardPanel } from './+pages/+panel/dashboard-panel/dashboard-panel'
 import { panelGuard } from './+guards/panel-guard';
 import { BooksPage } from './+pages/+panel/books-page/books-page';
 import { BorrowsPage } from './+pages/+panel/borrows-page/borrows-page';
-import { SubscribersPage } from './+pages/+panel/subscribers-page/subscribers-page';
 import { UsersPage } from './+pages/+panel/users-page/users-page';
 import { ReportsPage } from './+pages/+panel/reports-page/reports-page';
+import { MembersPage } from './+pages/+panel/members-page/members-page';
 
 export const routes: Routes = [
     { path: 'login', component: LoginPage },
@@ -18,7 +18,7 @@ export const routes: Routes = [
             { path: 'users', component: UsersPage },
             { path: 'books', component: BooksPage },
             { path: 'borrows', component: BorrowsPage },
-            { path: 'subscribers', component: SubscribersPage },
+            { path: 'members', component: MembersPage },
             { path: 'reports', component: ReportsPage },
             { path: '', redirectTo: 'reports', pathMatch: "prefix" },
             { path: '**', redirectTo: 'reports' }
